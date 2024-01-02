@@ -13,8 +13,9 @@ public class CorsConfig {
     //When you know the domain name for your client, add it below before deployment
     private static final String[] ALLOWED_ORIGINS = new String[] {
             "*",
-            "https://salmon-ocean-0faa64f03.4.azurestaticapps.net",
-            "http://127.0.0.1:5500"
+            "https://salmon-ocean-0faa64f03.4.azurestaticapps.net/",
+          "https://greenplate.gi5lund.dk/",
+            "http://127.0.0.1:5500/"
     };
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {

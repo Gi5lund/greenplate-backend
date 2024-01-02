@@ -4,6 +4,7 @@ import dk.kea.project.dto.UserRequest;
 import dk.kea.project.dto.UserResponse;
 import dk.kea.project.entity.User;
 import dk.kea.project.repository.UserRepository;
+import dk.kea.security.entity.Role;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -104,7 +105,7 @@ public class UserService {
         if(userRepository.findByEmail(user.getEmail()) != null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email already exists");
         };
-
+        user.addRole(Role.USER);
         userRepository.save(user);
         return new UserResponse(user);
     }
